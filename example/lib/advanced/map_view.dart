@@ -249,8 +249,8 @@ class MapViewState extends State<MapView>
   }
 
   void _onAddGeofence(pos, latLng) {
-    bg.BackgroundGeolocation.playSound(
-        util.Dialog.getSoundId("LONG_PRESS_ACTIVATE"));
+  ///  bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("LONG_PRESS_ACTIVATE"));
+    ///
 
     Navigator.of(context).push(MaterialPageRoute<Null>(
         fullscreenDialog: true,

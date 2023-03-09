@@ -51,12 +51,13 @@ class _RegistrationViewState extends State<RegistrationView> {
   }
 
   void _onClickClose() {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+   /// bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
     Navigator.pop(context, null);
   }
 
   void _onClickSave() async {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+  ///  bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+    ///
     //Navigator.of(context).pop();
     if (!_formKey.currentState.validate()) {
       return;

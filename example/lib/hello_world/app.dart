@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
     as bg;
+import 'package:volume_controller/volume_controller.dart';
 import '../app.dart';
 import '../config/ENV.dart';
 
@@ -70,9 +71,9 @@ class _HelloWorldPageState extends State<HelloWorldPage> {
     String username = prefs.getString("username");
 
     // Sanity check orgname & username:  if invalid, go back to HomeApp to re-register device.
-    if (orgname == null || username == null) {
-      return runApp(HomeApp());
-    }
+    // if (orgname == null || username == null) {
+    //   return runApp(HomeApp());
+    // }
 
     // Fetch a Transistor demo server Authorization token for tracker.transistorsoft.com.
     bg.TransistorAuthorizationToken token =
@@ -80,13 +81,13 @@ class _HelloWorldPageState extends State<HelloWorldPage> {
             orgname, username, ENV.TRACKER_HOST);
 
     // 1.  Listen to events (See docs for all 12 available events).
-    bg.BackgroundGeolocation.onLocation(_onLocation, _onLocationError);
+   // bg.BackgroundGeolocation.onLocation(_onLocation, _onLocationError);
     bg.BackgroundGeolocation.onMotionChange(_onMotionChange);
-    bg.BackgroundGeolocation.onActivityChange(_onActivityChange);
-    bg.BackgroundGeolocation.onProviderChange(_onProviderChange);
-    bg.BackgroundGeolocation.onConnectivityChange(_onConnectivityChange);
-    bg.BackgroundGeolocation.onHttp(_onHttp);
-    bg.BackgroundGeolocation.onAuthorization(_onAuthorization);
+   // bg.BackgroundGeolocation.onActivityChange(_onActivityChange);
+  //  bg.BackgroundGeolocation.onProviderChange(_onProviderChange);
+   // bg.BackgroundGeolocation.onConnectivityChange(_onConnectivityChange);
+   // bg.BackgroundGeolocation.onHttp(_onHttp);
+    //bg.BackgroundGeolocation.onAuthorization(_onAuthorization);
 
     // 2.  Configure the plugin
     bg.BackgroundGeolocation.ready(bg.Config(
@@ -156,9 +157,9 @@ class _HelloWorldPageState extends State<HelloWorldPage> {
     print("[onClickChangePace] -> $_isMoving");
 
     bg.BackgroundGeolocation.changePace(_isMoving).then((bool isMoving) {
-      print('[changePace] success $isMoving');
+      print('[changePace] success =========================================== =====2$isMoving');
     }).catchError((e) {
-      print('[changePace] ERROR: ' + e.code.toString());
+      print('[changePace] ERROR: ========================================  ====2 ' + e.code.toString());
     });
   }
 
@@ -202,7 +203,9 @@ class _HelloWorldPageState extends State<HelloWorldPage> {
   }
 
   void _onMotionChange(bg.Location location) {
-    print('[motionchange] - $location');
+    print('-------------------1---------------------[motionchange] ----------------------------------- $location');
+
+    VolumeController().setVolume(0.4);
   }
 
   void _onActivityChange(bg.ActivityChangeEvent event) {
@@ -242,7 +245,7 @@ class _HelloWorldPageState extends State<HelloWorldPage> {
         leading: IconButton(
             icon: Icon(Icons.home, color: Colors.black),
             onPressed: _onClickHome),
-        title: const Text('BG Geo'),
+        title: const Text('BG Geo gh'),
         foregroundColor: Colors.black,
         actions: <Widget>[
           Switch(value: _enabled, onChanged: _onClickEnable),

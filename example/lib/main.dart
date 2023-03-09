@@ -172,15 +172,15 @@ void main() {
         break;
       default:
         // Default app.  Renders the application selector home page.
-        runApp(new HomeApp());
+        runApp(new HelloWorldApp());
     }
   });
-  TransistorAuth.registerErrorHandler();
+ // TransistorAuth.registerErrorHandler();
 
   /// Register BackgroundGeolocation headless-task.
-  bg.BackgroundGeolocation.registerHeadlessTask(
-      backgroundGeolocationHeadlessTask);
+  // bg.BackgroundGeolocation.registerHeadlessTask(
+  //     backgroundGeolocationHeadlessTask);
 
   /// Register BackgroundFetch headless-task.
-  BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
+ // BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }

@@ -90,14 +90,16 @@ class _SettingsViewState extends State<SettingsView> {
   }
 
   _onClickClose() {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+    ///
     Navigator.of(context).pop();
   }
 
   _onClickAbout() {
     // TODO
     print("[onClickAbout] - NO IMPLEMENTATION");
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("FLOURISH"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("FLOURISH"));
+    ///
   }
 
   _onSelectMenu(String action) async {
@@ -119,8 +121,8 @@ class _SettingsViewState extends State<SettingsView> {
         break;
       case actions.Actions.REMOVE_GEOFENCES:
         bg.BackgroundGeolocation.removeGeofences().then((bool success) {
-          bg.BackgroundGeolocation.playSound(
-              util.Dialog.getSoundId("MESSAGE_SENT"));
+        ///  bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("MESSAGE_SENT"));
+          ///
         });
         break;
       case 'power_manager':
@@ -173,12 +175,14 @@ class _SettingsViewState extends State<SettingsView> {
         _notifyOnExit,
         _notifyOnDwell,
         _loiteringDelay));
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("ADD_GEOFENCE"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("ADD_GEOFENCE"));
+    ///
   }
 
   _onClickRemoveGeofences() async {
     await bg.BackgroundGeolocation.removeGeofences();
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("MESSAGE_SENT"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("MESSAGE_SENT"));
+    ///
   }
 
   @override

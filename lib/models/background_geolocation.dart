@@ -1627,8 +1627,7 @@ class BackgroundGeolocation {
     return completer.future as FutureOr<bool>;
   }
 
-  static void _registerSubscription(
-      StreamSubscription<dynamic> sub, Function callback) {
+  static void _registerSubscription(StreamSubscription<dynamic> sub, Function callback) {
     _subscriptions.add(new _Subscription(sub, callback));
   }
 

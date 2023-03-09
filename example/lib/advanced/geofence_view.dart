@@ -25,7 +25,7 @@ class _GeofenceViewState extends State<GeofenceView> {
 
   _GeofenceViewState(this.center);
   void _onClickClose() {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+   // bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
 
     //bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
     Navigator.of(context).pop();
@@ -46,8 +46,8 @@ class _GeofenceViewState extends State<GeofenceView> {
           'center': {'latitude': center.latitude, 'longitude': center.longitude}
         } // meta-data for tracker.transistorsoft.com
         )).then((bool success) {
-      bg.BackgroundGeolocation.playSound(
-          util.Dialog.getSoundId('ADD_GEOFENCE'));
+     // bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId('ADD_GEOFENCE'));
+
     }).catchError((error) {
       print('[addGeofence] ERROR: $error');
     });

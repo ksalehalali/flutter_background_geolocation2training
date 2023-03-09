@@ -31,8 +31,7 @@ class Actions {
       bg.BackgroundGeolocation.sync().then((List records) {
         // TODO hide spinner.
         print('[sync] success');
-        bg.BackgroundGeolocation.playSound(
-            util.Dialog.getSoundId("MESSAGE_SENT"));
+       // bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("MESSAGE_SENT"));
       }).catchError((dynamic error) {
         util.Dialog.alert(context, "Sync", error.toString());
         print('[sync] ERROR: $error');
@@ -54,8 +53,8 @@ class Actions {
       }
       bg.BackgroundGeolocation.destroyLocations().then((bool success) {
         // TODO hide spinner.
-        bg.BackgroundGeolocation.playSound(
-            util.Dialog.getSoundId((success) ? "MESSAGE_SENT" : "ERROR"));
+     //   bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId((success) ? "MESSAGE_SENT" : "ERROR"));
+
       });
     });
   }

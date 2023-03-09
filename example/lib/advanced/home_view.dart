@@ -228,7 +228,9 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin<HomeVi
   }
 
   void _onClickEnable(enabled) async {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("BUTTON_CLICK"));
+    //bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("BUTTON_CLICK"));
+
+
     if (enabled) {
       dynamic callback = (bg.State state) async {
         print('[start] success: $state');
@@ -271,7 +273,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin<HomeVi
 
   // Manually fetch the current position.
   void _onClickGetCurrentPosition() async {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("BUTTON_CLICK"));
+   // bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("BUTTON_CLICK"));
 
     bg.BackgroundGeolocation.getCurrentPosition(
         persist: true,       // <-- do not persist this location
@@ -289,7 +291,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin<HomeVi
 
   // Go back to HomeApp
   void _onClickHome() {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+   // bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("CLOSE"));
+
     bg.BackgroundGeolocation.stop();
     bg.BackgroundGeolocation.removeListeners();
     runApp(HomeApp());
@@ -385,7 +388,9 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin<HomeVi
         "Authorization": "Bearer ${state.authorization.accessToken}"
       }).then((String result) {
         print("[http test] success: $result");
-        bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_CLICK"));
+       /// bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_CLICK"));
+
+
         bg.BackgroundGeolocation.stopBackgroundTask(taskId);
       }).catchError((dynamic error) {
         print("[http test] failed: $error");
@@ -502,9 +507,11 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin<HomeVi
   void _onClickTestMode() {
     _testModeClicks++;
 
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_CLICK"));
+   /// bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_CLICK"));
+    ///
     if (_testModeClicks == 10) {
-      bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_SUCCESS"));
+     /// bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("TEST_MODE_SUCCESS"));
+      ///
       Test.applyTestConfig();
     }
     if (_testModeTimer != null) {

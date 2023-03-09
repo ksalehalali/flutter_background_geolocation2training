@@ -25,7 +25,9 @@ class MainMenuButtonState extends State<MainMenuButton> {
   }
 
   void _onClickSettings() {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+    ///
+    ///
     Navigator.of(_context).push(MaterialPageRoute<Null>(
         fullscreenDialog: true,
         builder: (BuildContext context) {

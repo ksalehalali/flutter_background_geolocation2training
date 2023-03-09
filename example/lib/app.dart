@@ -71,7 +71,7 @@ class _HomeViewState extends State<_HomeView> {
     // Rendering Home page, stop everything and remove all listeners.
     bg.BackgroundGeolocation.stop();
     await bg.BackgroundGeolocation.removeListeners();
-    TransistorAuth.registerErrorHandler();
+   // TransistorAuth.registerErrorHandler();
 
     _deviceInfo = await bg.DeviceInfo.getInstance();
 
@@ -98,32 +98,33 @@ class _HomeViewState extends State<_HomeView> {
           : _deviceInfo.model;
     });
 
-    if (!_usernameIsValid(username) || !_usernameIsValid(orgname)) {
-      _showRegistration();
-    }
+    // if (!_usernameIsValid(username) || !_usernameIsValid(orgname)) {
+    //   _showRegistration();
+    // }
   }
 
   void _showRegistration() async {
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+   /// bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+    ///
 
-    final result = await Navigator.of(context).push(MaterialPageRoute<Map>(
-        fullscreenDialog: true,
-        builder: (BuildContext context) {
-          return RegistrationView();
-        }));
-
-    if (result != null) {
-      setState(() {
-        _orgname = result["orgname"];
-        _username = result["username"];
-        _deviceId = "${_deviceInfo.model}-${result["username"]}";
-      });
-    }
+    // final result = await Navigator.of(context).push(MaterialPageRoute<Map>(
+    //     fullscreenDialog: true,
+    //     builder: (BuildContext context) {
+    //       return HelloWorldApp();
+    //     }));
+    //
+    // if (result != null) {
+    //   setState(() {
+    //     _orgname = result["orgname"];
+    //     _username = result["username"];
+    //     _deviceId = "${_deviceInfo.model}-${result["username"]}";
+    //   });
+    // }
   }
 
   void _onClickNavigate(String appName) async {
     if (!_usernameIsValid(_username) || !_usernameIsValid(_orgname)) {
-      _showRegistration();
+     // _showRegistration();
       return;
     }
 
@@ -175,7 +176,9 @@ class _HomeViewState extends State<_HomeView> {
         return;
         break;
     }
-    bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+    ///bg.BackgroundGeolocation.playSound(util.Dialog.getSoundId("OPEN"));
+    ///
+    ///
     runApp(app);
   }
 
